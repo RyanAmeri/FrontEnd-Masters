@@ -1,0 +1,14 @@
+{
+  "name": "doggos_picture_viewer",
+  "version": "0.0.1",
+  "description": "Doggos Picture Viewer",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "normalize.css": "^8.0.1"
+  }
+}
