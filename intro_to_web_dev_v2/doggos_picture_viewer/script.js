@@ -1,3 +1,4 @@
+"use strict";
 import 'normalize.css';
 
 const DOG_URL = "https://dog.ceo/api/breeds/image/random";
@@ -23,23 +24,25 @@ function loadPictures() {
         pictureViewer.appendChild(pictureCard[i]);
         const promise = fetch(DOG_URL);
         promise
-        .then( response => response.json())
+        .then( response => 
+            response.json()
+        )
         .then( processedResponse => {
             const img = document.createElement("img");
             img.src = processedResponse.message;
             img.style.width = "100%";
             img.alt = "Cute doggo";
-            pictureCard[i].appendChild(img);
-        });
+            if (img.complete) {
+               hideBackground(pictureCard[i], img)
+            }
+            else {
+                img.addEventListener('load', hideBackground(pictureCard[i], img));
+                
+            } 
+        })
     } 
-}
+};
 
-
-
-//const pictureCard = document.querySelector(".picture-card");
-
-
-
-
-
-
+function hideBackground(div, img) {
+    div.appendChild(img);
+};

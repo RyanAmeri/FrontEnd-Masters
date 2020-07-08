@@ -6,3 +6,4 @@
 ## New Learnings
 * Parcel Bundler
 * Using NPM Packages
+* How to use Promises and check their satus

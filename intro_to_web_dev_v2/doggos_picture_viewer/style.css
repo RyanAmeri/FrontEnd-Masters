@@ -62,7 +62,11 @@ html {
       
   }
   .picture-card {
-      border: 1px dashed var(--third-color);
+     display: grid;
+     place-items: center center;
+     background-image: url(./6.gif);
+     background-repeat: no-repeat;
+     background-position: center center;
   }
   .footer {
       flex:1;
