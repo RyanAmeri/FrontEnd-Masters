@@ -6,4 +6,5 @@
 ## New Learnings
 * Parcel Bundler
 * Using NPM Packages
-* How to use Promises and check their satus
+* How to use Promises and check their status
+* How to read the option selected in a select element

@@ -64,10 +64,19 @@ html {
   .picture-card {
      display: grid;
      place-items: center center;
-     background-image: url(./6.gif);
+     background-image: url(./5.gif);
      background-repeat: no-repeat;
      background-position: center center;
   }
   .footer {
       flex:1;
+  }
+  label {
+      display: block;
+      padding-bottom: 3px;
+      font-size: 1rem;
+  }
+  #breed-select, #breed-select > option {
+      color: var(--third-color);
+      font-size: 1.2rem;
   }
