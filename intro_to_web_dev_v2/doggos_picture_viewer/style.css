@@ -109,6 +109,15 @@ select {
     cursor: pointer;
 }
 
+.footer {
+    width: 50%;
+    padding-top: 3vw;
+}
+
+a {
+    color: var(--third-color);
+}
+
 /* respect the user's color scheme choice but allow them to ovverride */
 @media (prefers-color-scheme: dark) {
     /* defaults to dark theme */
