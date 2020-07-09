@@ -1,4 +1,3 @@
-"use strict";
 import 'normalize.css';
 
 const BREED_URL = "https://dog.ceo/api/breeds/list/all";
