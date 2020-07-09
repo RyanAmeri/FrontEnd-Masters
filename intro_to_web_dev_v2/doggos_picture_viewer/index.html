@@ -4,6 +4,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark light">
     <title>Doggos Picture Viewer</title>
 </head>
 <body>
@@ -17,7 +18,7 @@
             <div class="breed-select">
                 <label for="breed-select">Choose a Breed:</label>
                 <select name="breeds" id="breed-select">
-                    <option value="all" selected>--All Doggos--</option>
+                    <option value="all" selected>-- All Doggos --</option>
                 </select>
 
             </div>
@@ -26,7 +27,8 @@
                 <input type="number" id="doggo-number" name="doggo-number" min="1" max="99">
             </div>
             <div class="theme-select">
-                Select Theme Here
+                <label id= "theme-toggle-label" for="theme-toggle">Dark Theme</label> 
+                <input type="checkbox" id="theme-toggle" name="theme-toggle" value="off">                 
             </div>
         </header>
         <section class="picture-viewer">

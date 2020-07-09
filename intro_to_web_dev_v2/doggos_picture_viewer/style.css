@@ -7,23 +7,30 @@ html {
   *:after {
     box-sizing: inherit;
   }
-
   :root {
-      --bg-color: #FDFFFC;
-      --font-color: #F24333;
-      --third-color: #668586;
-      --fourth-color: #F7B32B;
-      --fifth-color: #5CF64A;
-    
+    color-scheme: light dark; /* both supported */
   }
+
   body {
+    --bg-color: #FDFFFC;
+    --font-color: #F24333;
+    --third-color: #668586;
     font-family: "AvenirNext", Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: normal;
     font-size: 10px;
     line-height: 1;
     text-align: left;
     color: var(--font-color);
+    background-color: var(--bg-color);
   }
+  /* Dark theme colors here */
+  body.dark-theme {
+      --bg-color: #3C3744;
+      --font-color: #FBFFF1;
+      --third-color: #FFC4EB;
+      filter: brightness(.8) contrast(1.2);
+  }
+
   .wrapper {
       display: flex;
       flex-direction: column; 
@@ -54,7 +61,6 @@ html {
   }
   .picture-viewer {
       flex:20;
-      background: var(--bg-color);
       display: grid;
       grid-gap: 5vw;
       grid-template-columns: repeat(auto-fill, minmax(min(10rem, 100%), 1fr));
@@ -64,9 +70,14 @@ html {
   .picture-card {
      display: grid;
      place-items: center center;
-     background-image: url(./5.gif);
      background-repeat: no-repeat;
      background-position: center center;
+  }
+  .picture-card.light-theme {
+    background-image: url(./loading.svg);
+  }
+  .picture-card.dark-theme {
+    background-image: url(./loading-dark.svg);
   }
   .footer {
       flex:1;
@@ -76,7 +87,41 @@ html {
       padding-bottom: 3px;
       font-size: 1rem;
   }
-  #breed-select, #breed-select > option {
+  #doggo-number, #breed-select, #breed-select > option {
       color: var(--third-color);
       font-size: 1.2rem;
+  }
+
+  input {
+      background-color: var(--bg-color);
+  }
+
+input[type=checkbox] {
+    cursor: pointer;
+    width: 1vw;
+    height: 1vw;
+}
+#theme-toggle-label {
+    cursor: pointer;
+}
+select {
+    background-color: var(--bg-color);
+    cursor: pointer;
+}
+
+/* respect the user's color scheme choice but allow them to ovverride */
+@media (prefers-color-scheme: dark) {
+    /* defaults to dark theme */
+    body { 
+        --bg-color: #3C3744;
+        --font-color: #FBFFF1;
+        --third-color: #FFC4EB;
+        filter: brightness(.8) contrast(1.2);
+    }
+    /* Override dark mode with light mode styles if the user decides to swap */
+    body.light-theme {
+        --bg-color: #FDFFFC;
+        --font-color: #F24333;
+        --third-color: #668586;
+    }
   }
