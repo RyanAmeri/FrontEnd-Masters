@@ -1,30 +1,24 @@
-function range(start,end) {
+function range(start, end) {
     const arr = [];
-    if (end !== undefined) {
-        for (let i = start; i <= end; i++) {
-            arr.push(i);
-        }
-        return arr;
-    }
-    else {
-        return closureFunction;
-    }
+    if (end !== undefined) 
+        return addToArray(start, end, arr);
+    else 
+        return (number) => addToArray(start, number, arr);
+}
 
-    function closureFunction(number) {
-        for (let i = start; i <= number; i++) {
-            arr.push(i);
-        }
-        return arr;    
+function addToArray(start, end, array) {
+    for (let i = start; i<= end; i++) {
+        array.push(i)
     }
-
+    return array;
 }
 
 console.log(range(3,3));    // [3]
 console.log(range(3,8));    // [3,4,5,6,7,8]
 console.log(range(3,0));    // []
 
- var start3 = range(3);
- var start4 = range(4);
+var start3 = range(3);
+var start4 = range(4);
 
 console.log(start3(3));     // [3]
 console.log(start3(8));     // [3,4,5,6,7,8]
