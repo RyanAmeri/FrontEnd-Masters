@@ -10,6 +10,7 @@ class Bookshelf {
   printFavoriteBooks() {
     console.log(`Favorite Books: ${this.favoriteBooks.length}`);
     for (let bookName of this.favoriteBooks) {
+      bookName = String(bookName);
       console.log(bookName);
     }
   }
