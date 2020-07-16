@@ -53,6 +53,9 @@ div img {
 .col1-12 {
   flex-basis: 100%;
 }
+.reverse {
+  flex-direction: row-reverse;
+}
 
 @media only screen and (max-width: 768px) {
   .col1-4,
@@ -66,6 +69,9 @@ div img {
   }
   .col1-6.col2 {
     flex-basis: 100%;
+  }
+  .reverse {
+    flex-direction: row;
   }
 }
 
