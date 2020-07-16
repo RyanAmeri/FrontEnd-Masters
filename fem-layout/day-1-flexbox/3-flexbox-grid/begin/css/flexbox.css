@@ -60,6 +60,13 @@ div img {
   .col1-8 {
     flex-basis: 50%;
   }
+  .col1-4.col2 {
+    flex-basis: 50%;
+    order: 2;
+  }
+  .col1-6.col2 {
+    flex-basis: 100%;
+  }
 }
 
 @media only screen and (max-width: 480px) {
