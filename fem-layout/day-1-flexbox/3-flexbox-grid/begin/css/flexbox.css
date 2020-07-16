@@ -33,39 +33,37 @@ div img {
 .row {
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
+  justify-content: space-between;
   margin: 1%;
+}
+.row > article {
+  padding: 0 2vw;
 }
 
 .col1-4 {
-  flex-basis: 24%;
+  flex-basis: 25%;
 }
 
 .col1-6 {
-  flex-basis: 48%;
+  flex-basis: 50%;
 }
 .col1-8 {
-  flex-basis: 72%;
+  flex-basis: 75%;
 }
 .col1-12 {
-  flex-basis: 98%;
+  flex-basis: 100%;
 }
 
 @media only screen and (max-width: 768px) {
   .col1-4,
   .col1-6,
   .col1-8 {
-    flex-basis: 48%;
+    flex-basis: 50%;
   }
 }
 
 @media only screen and (max-width: 480px) {
   [class*="col"] {
-    flex-basis: 98%;
+    flex-basis: 100%;
   }
 }
-
-/* Desktop screen Sizes */
-/* @media only screen and (min-width: 768px) {
-
-} */
