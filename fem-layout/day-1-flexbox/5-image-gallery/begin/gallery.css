@@ -19,6 +19,12 @@ ul {
   align-items: center;
   justify-content: space-evenly;
 }
+li {
+  flex: auto;
+}
+img {
+  width: 100%;
+}
 figure {
   display: flex;
   flex-direction: column;
