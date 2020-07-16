@@ -66,25 +66,14 @@ div img {
 @media only screen and (max-width: 768px) {
   .row1 [class*="col-"] {
     float: left;
-    margin-left: 4%;
-    width: 44%;
+    margin-left: 2%;
+    width: 47%;
   }
 }
-@media only screen and (max-width: 479px) {
+@media only screen and (max-width: 480px) {
   .row [class*="col-"] {
     width: 98%;
     margin: 1%;
     float: none;
   }
 }
-
-/* grid system -- mobile first! */
-
-/* Mobile Landscape Screen Sizes */
-/* @media only screen and (min-width: 480px)  {
-
-} */
-/* Desktop screen Sizes */
-/* @media only screen and (min-width: 768px) {
-
-} */
