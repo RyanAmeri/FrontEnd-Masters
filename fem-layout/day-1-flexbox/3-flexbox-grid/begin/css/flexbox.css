@@ -5,39 +5,67 @@ html {
 }
 /* inherit border-box on all elements in the universe and before and after
  */
-*, 
-*:before, 
+*,
+*:before,
 *:after {
   box-sizing: inherit;
 }
 
 body {
-	font-family: Arial, Geneva, sans-serif;
+  font-family: Arial, Geneva, sans-serif;
 }
 a {
-	color: #2772B0;
+  color: #2772b0;
 }
 .wrapper {
-	width: 97%;
-	max-width: 1200px;
-	margin: 0 auto;
-	float: none;
-	background-color: #fff;
+  width: 97%;
+  max-width: 1200px;
+  margin: 0 auto;
+  float: none;
+  background-color: #fff;
 }
 
 div img {
-	width: 100%;
-	max-width: 225px; 
+  width: 100%;
+  max-width: 225px;
 }
 
-/* grid system -- mobile first! */
-
-
-/* Mobile Landscape Screen Sizes */
-@media only screen and (min-width: 480px)  {
-
+.row {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin: 1%;
 }
+
+.col1-4 {
+  flex-basis: 24%;
+}
+
+.col1-6 {
+  flex-basis: 48%;
+}
+.col1-8 {
+  flex-basis: 72%;
+}
+.col1-12 {
+  flex-basis: 98%;
+}
+
+@media only screen and (max-width: 768px) {
+  .col1-4,
+  .col1-6,
+  .col1-8 {
+    flex-basis: 48%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  [class*="col"] {
+    flex-basis: 98%;
+  }
+}
+
 /* Desktop screen Sizes */
-@media only screen and (min-width: 768px) {
+/* @media only screen and (min-width: 768px) {
 
-}
+} */
