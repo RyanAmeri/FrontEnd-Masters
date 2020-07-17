@@ -1,13 +1,13 @@
 const _ = {
   each(list, callback) {
     if (Array.isArray(list)) {
-      for (let item of list) {
-        callback(item);
+      for (let [index, item] of list.entries()) {
+        callback(item, index, list);
       }
     } else {
       for (let item in list) {
         if (list.hasOwnProperty(item)) {
-          callback(item);
+          callback(list[item], item, list);
         }
       }
     }
@@ -24,9 +24,9 @@ function CreateSuspectObjects(name) {
   };
 }
 
-var suspects = ["Miss Scarlet", "Colonel Mustard", "Mr. White"];
+const suspects = ["Miss Scarlet", "Colonel Mustard", "Mr. White"];
 
-var suspectsList = [];
+const suspectsList = [];
 
 _.each(suspects, function (name) {
   suspectsList.push(CreateSuspectObjects(name));
