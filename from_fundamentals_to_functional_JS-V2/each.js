@@ -1,18 +1,4 @@
-const _ = {
-  each(list, callback) {
-    if (Array.isArray(list)) {
-      for (let [index, item] of list.entries()) {
-        callback(item, index, list);
-      }
-    } else {
-      for (let item in list) {
-        if (list.hasOwnProperty(item)) {
-          callback(list[item], item, list);
-        }
-      }
-    }
-  },
-};
+import { _ } from "./_.js";
 
 function CreateSuspectObjects(name) {
   return {
