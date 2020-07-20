@@ -37,3 +37,18 @@ _.from = (...argList) => {
 _.es5from = function () {
   return Array.prototype.slice.call(arguments);
 };
+
+_.reduce = (collection, callback, accum) => {
+  if (Array.isArray(collection)) {
+    accum = accum ?? collection[0];
+    for (let item of collection) {
+      accum = callback(accum, item);
+    }
+  } else {
+    accum = accum ?? Object.create(null);
+    for (let key in collection) {
+      accum = callback(accum, collection[key], key);
+    }
+  }
+  return accum;
+};
