@@ -7,3 +7,18 @@ const makeBroken = function (item) {
 
 const brokenWeapons = _.map(weapons, makeBroken);
 console.log(brokenWeapons);
+
+function CreateSuspectObjects(name) {
+  return {
+    name: name,
+    color: name.split(" ")[1],
+    speak() {
+      console.log(`my name is ${name}`);
+    },
+  };
+}
+
+const suspects = ["Miss Scarlet", "Colonel Mustard", "Mr. White"];
+
+const suspectsList = _.map(suspects, CreateSuspectObjects);
+console.table(suspectsList);
