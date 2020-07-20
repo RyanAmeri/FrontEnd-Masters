@@ -28,3 +28,12 @@ _.filter = (list, callback) => {
   });
   return res;
 };
+
+_.from = (...argList) => {
+  return argList;
+};
+
+//ES5 Version
+_.es5from = function () {
+  return Array.prototype.slice.call(arguments);
+};
