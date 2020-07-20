@@ -19,3 +19,12 @@ _.map = (list, callback) => {
 
   return res;
 };
+_.filter = (list, callback) => {
+  const res = [];
+  _.each(list, (value, index, list) => {
+    if (callback(value, index, list)) {
+      res.push(value);
+    }
+  });
+  return res;
+};
