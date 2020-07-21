@@ -52,3 +52,19 @@ _.reduce = (collection, callback, accum) => {
   }
   return accum;
 };
+
+_.forEachRight = (list, callback) => {
+  if (Array.isArray(list)) {
+    const reverseArr = [...list].reverse();
+    for (let [index, item] of reverseArr.entries()) {
+      callback(item, index, reverseArr);
+    }
+  } else {
+    // Objects don't have order so this is the same as _.each
+    for (let key in list) {
+      callback(list[key], key, list);
+    }
+  }
+};
+
+_.eachRight = _.forEachRight;
