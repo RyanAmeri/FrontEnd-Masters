@@ -1,13 +1,15 @@
 {
-  "type": "module",
   "name": "from_fundamentals_to_functional_JS-V2",
   "version": "1.0.0",
-  "description": "",
   "main": "_.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "lodash": "^4.17.19"
+  }
 }
