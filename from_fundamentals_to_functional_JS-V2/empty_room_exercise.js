@@ -63,14 +63,11 @@ const flatRooms = _.flatten(rooms);
 
 const falseRooms = _.reduce(
   flatRooms,
-  (store, room) => {
-    //console.log(room);
-    //console.log(Object.values(room));
-    //console.log(Object.keys(room));
+  (accum, room) => {
     if (!Object.values(room)[0]) {
-      store.push(Object.keys(room)[0]);
+      accum.push(Object.keys(room)[0]);
     }
-    return store;
+    return accum;
   },
   []
 );
@@ -90,10 +87,13 @@ const falseRoomCounts = _.reduce(
 //console.log(falseRoomCounts);
 
 const noOne = [];
-for (let key in falseRoomCounts) {
-  if (falseRoomCounts[key] === newDevelopment.length) {
-    noOne.push(key);
-  }
-}
+_.each(falseRoomCounts, (room, key) => {
+  if (room === newDevelopment.length) noOne.push(key);
+});
+// for (let key in falseRoomCounts) {
+//   if (falseRoomCounts[key] === newDevelopment.length) {
+//     noOne.push(key);
+//   }
+// }
 
 console.log(noOne);
