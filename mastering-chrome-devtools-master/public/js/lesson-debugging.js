@@ -1,5 +1,4 @@
 function one() {
-  debugger;
   console.log("Hello from function one!");
   two();
   three();
@@ -22,6 +21,6 @@ one();
 
 window.setInterval(() => {
   fetch("/api")
-    .then(response => response.json())
+    .then((response) => response.json())
     .then();
 }, 2000);
