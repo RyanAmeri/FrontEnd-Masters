@@ -73,24 +73,49 @@ const add = function (a, b) {
 
 // Challenge 7
 function intersection(...arrays) {
-  
+  //this works because if acc is not provided as a param, it is set to the first array. So in subsequent calls we just filter the arrays
+  // to return items that were included in the accum array
+  return arrays.reduce((acc, array) => {
+    return array.filter((item) => acc.includes(item));
+  });
 }
 
 //console.log(
-  intersection([5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20])
-);
+//intersection([5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20]);
+//);
 // should log: [5, 15]
 
 // Challenge 8
-function union(arrays) {}
+function union(...arrays) {
+  return arrays.reduce((acc, array) => {
+    const newItem = array.filter((item) => !acc.includes(item));
+    return acc.concat(newItem);
+  });
+}
 
-// console.log(union([5, 10, 15], [15, 88, 1, 5, 7], [100, 15, 10, 1, 5]));
+//console.log(union([5, 10, 15], [15, 88, 1, 5, 7], [100, 15, 10, 1, 5]));
 // should log: [5, 10, 15, 88, 1, 7, 100]
 
 // Challenge 9
-function objOfMatches(array1, array2, callback) {}
+function objOfMatches(array1, array2, callback) {
+  const res = Object.create(null);
+  array2.forEach((value, index) => {
+    if (value === callback(array1[index])) {
+      res[array1[index]] = value;
+    }
+  });
+  return res;
+}
 
-// console.log(objOfMatches(['hi', 'howdy', 'bye', 'later', 'hello'], ['HI', 'Howdy', 'BYE', 'LATER', 'hello'], function(str) { return str.toUpperCase(); }));
+/* console.log(
+  objOfMatches(
+    ["hi", "howdy", "bye", "later", "hello"],
+    ["HI", "Howdy", "BYE", "LATER", "hello"],
+    function (str) {
+      return str.toUpperCase();
+    }
+  )
+); */
 // should log: { hi: 'HI', bye: 'BYE', later: 'LATER' }
 
 // Challenge 10
