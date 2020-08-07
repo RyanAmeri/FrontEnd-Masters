@@ -25,7 +25,19 @@ The three core components of JS:
 
 ## Generalising Functions
 
-We make our functions generalizable mostly using two methods:
+We make our functions generalisable mostly using two methods:
 
 1. Leave some of the data to be determined later (in the form of parameters)
 2. Leave some of the code to be determined later (this is called higher order functions)
+
+## Lexical vs Dynamic Scoping
+
+## Closure and Persistent Lexical Scope Referenced Data (backpack data)
+
+## Event Loop, the Task queue and the Microtask queue
+
+## Understanding Promises
+
+- Two pronged facade methods (APIs) such as fetch()
+
+## Understanding prototype chain
