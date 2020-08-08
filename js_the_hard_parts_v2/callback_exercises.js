@@ -91,7 +91,7 @@ const nums = [4, 1, 3];
 const add = function (a, b) {
   return a + b;
 };
-// console.log(reduce(nums, add, 0)); //-> 8
+//console.log(reduce(nums, add, 0)); //-> 8
 
 // Challenge 7
 /* Construct a function intersection that compares input arrays and returns a new array with elements found in all of the inputs. BONUS: Use reduce!
@@ -103,12 +103,12 @@ function intersection(...arrays) {
     return array.filter((item) => acc.includes(item));
   });
 }
-
-//console.log(
-//intersection([5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20]);
-//);
+/*
+console.log(
+  intersection([5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20])
+);
 // should log: [5, 15]
-
+*/
 // Challenge 8
 /* 
 Construct a function union that compares input arrays and returns a new array that contains all elements. If there are duplicate elements, only add it once to the new array. Preserve the order of the elements starting from the first element of the first input array. BONUS: Use reduce!
@@ -128,16 +128,15 @@ function union(...arrays) {
 Construct a function objOfMatches that accepts two arrays and a callback. objOfMatches will build an object and return it. To build the object, objOfMatches will test each element of the first array using the callback to see if the output matches the corresponding element (by index) of the second array. If there is a match, the element from the first array becomes a key in an object, and the element from the second array becomes the corresponding value.
 */
 function objOfMatches(array1, array2, callback) {
-  const res = Object.create(null);
-  array2.forEach((value, index) => {
+  return array2.reduce((res, value, index) => {
     if (value === callback(array1[index])) {
       res[array1[index]] = value;
     }
-  });
-  return res;
+    return res;
+  }, Object.create(null));
 }
-
-/* console.log(
+/* 
+console.log(
   objOfMatches(
     ["hi", "howdy", "bye", "later", "hello"],
     ["HI", "Howdy", "BYE", "LATER", "hello"],
@@ -145,7 +144,8 @@ function objOfMatches(array1, array2, callback) {
       return str.toUpperCase();
     }
   )
-); */
+);
+*/
 // should log: { hi: 'HI', bye: 'BYE', later: 'LATER' }
 
 // Challenge 10
@@ -193,13 +193,14 @@ function objectFilter(obj, callback) {
   }
   return newObj;
 }
-
+/* 
 const cities = {
   London: "LONDON",
   LA: "Los Angeles",
   Paris: "PARIS",
 };
-//console.log(objectFilter(cities, (city) => city.toUpperCase()));
+console.log(objectFilter(cities, (city) => city.toUpperCase()));
+*/
 // Should log { London: 'LONDON', Paris: 'PARIS'}
 
 // Challenge 12
@@ -235,7 +236,7 @@ function prioritize(array, callback) {
 }
 
 // /*** Uncomment these to check your work! ***/
-/* 
+/*
 const startsWithS = function (str) {
   return str[0] === "s" || str[0] === "S";
 };
@@ -245,10 +246,9 @@ console.log(
     startsWithS
   )
 );
-*/
 
 // should log: ["seinfeld", "sunny", "curb", "rickandmorty", "friends"];
-
+*/
 // Challenge 14
 /* 
 Create a function countBy that accepts an array and a callback, and returns an object. countBy will iterate through the array and perform the callback on each element. Each return value from the callback will be saved as a key on the object. The value associated with each key will be the number of times that particular return value was returned.
@@ -263,7 +263,7 @@ function countBy(array, callback) {
 }
 
 // /*** Uncomment these to check your work! ***/
-/* 
+/*
 console.log(
   countBy([1, 2, 3, 4, 5], function (num) {
     if (num % 2 === 0) return "even";
@@ -304,7 +304,7 @@ function goodKeys(obj, callback) {
 }
 
 // /*** Uncomment these to check your work! ***/
-/* 
+
 const sunny = {
   mac: "priest",
   dennis: "calculating",
@@ -312,6 +312,7 @@ const sunny = {
   dee: "bird",
   frank: "warthog",
 };
+/*
 const startsWithBird = function (str) {
   return str.slice(0, 4).toLowerCase() === "bird";
 };
@@ -328,7 +329,7 @@ function commutative(func1, func2, value) {
 }
 
 // /*** Uncomment these to check your work! ***/
-/* 
+/*
 const multBy3 = (n) => n * 3;
 const divBy4 = (n) => n / 4;
 const subtract5 = (n) => n - 5;
@@ -374,13 +375,13 @@ function rating(arrOfFuncs, value) {
 }
 
 // /*** Uncomment these to check your work! ***/
-//const isEven = (n) => n % 2 === 0;
-//const greaterThanFour = (n) => n > 4;
-//const isSquare = (n) => Math.sqrt(n) % 1 === 0;
-//const hasSix = (n) => n.toString().includes("6");
-//const checks = [isEven, greaterThanFour, isSquare, hasSix];
-//console.log(rating(checks, 64)); // should log: 100
-//console.log(rating(checks, 66)); // should log: 75
+// const isEven = (n) => n % 2 === 0;
+// const greaterThanFour = (n) => n > 4;
+// const isSquare = (n) => Math.sqrt(n) % 1 === 0;
+// const hasSix = (n) => n.toString().includes("6");
+// const checks = [isEven, greaterThanFour, isSquare, hasSix];
+// console.log(rating(checks, 64)); // should log: 100
+// console.log(rating(checks, 66)); // should log: 75
 
 // Challenge 20
 /* 
@@ -398,7 +399,7 @@ function pipe(arrOfFuncs, value) {
 // const repeat = (str) => str + str;
 // const capAddlowRepeat = [capitalize, addLowerCase, repeat];
 // console.log(pipe(capAddlowRepeat, "cat"));
-// should log: 'CATcatCATcat'
+// // should log: 'CATcatCATcat'
 
 // Challenge 21
 /* 
@@ -417,13 +418,13 @@ function highestFunc(objOfFuncs, subject) {
 }
 
 // /*** Uncomment these to check your work! ***/
-//const groupOfFuncs = {};
-//groupOfFuncs.double = (n) => n * 2;
-//groupOfFuncs.addTen = (n) => n + 10;
-//groupOfFuncs.inverse = (n) => n * -1;
-//console.log(highestFunc(groupOfFuncs, 5)); // should log: 'addTen'
-//console.log(highestFunc(groupOfFuncs, 11)); // should log: 'double'
-//console.log(highestFunc(groupOfFuncs, -20)); // should log: 'inverse'
+// const groupOfFuncs = {};
+// groupOfFuncs.double = (n) => n * 2;
+// groupOfFuncs.addTen = (n) => n + 10;
+// groupOfFuncs.inverse = (n) => n * -1;
+// console.log(highestFunc(groupOfFuncs, 5)); // should log: 'addTen'
+// console.log(highestFunc(groupOfFuncs, 11)); // should log: 'double'
+// console.log(highestFunc(groupOfFuncs, -20)); // should log: 'inverse'
 
 // Challenge 22
 /* 
@@ -431,12 +432,10 @@ Create a function, combineOperations, that takes two parameters: a starting valu
 */
 function combineOperations(startVal, arrOfFuncs) {
   return arrOfFuncs.reduce((accum, fn) => {
-    accum = fn(accum);
-    return accum;
+    return fn(accum);
   }, startVal);
 }
 
-/* 
 function add100(num) {
   return num + 100;
 }
@@ -457,9 +456,9 @@ function addTen(num) {
   return num + 10;
 }
 
-// /*** Uncomment these to check your work! ***/
-//console.log(combineOperations(0, [add100, divByFive, multiplyByThree])); // Should output 60 -->
-//console.log(combineOperations(0, [divByFive, multiplyFive, addTen])); // Should output 10
+// // /*** Uncomment these to check your work! ***/
+// console.log(combineOperations(0, [add100, divByFive, multiplyByThree])); // Should output 60 -->
+// console.log(combineOperations(0, [divByFive, multiplyFive, addTen])); // Should output 10
 
 // Challenge 23
 /* 
@@ -473,13 +472,13 @@ function myFunc(array, callback) {
 const numbers = [2, 3, 6, 64, 10, 8, 12];
 const evens = [2, 4, 6, 8, 10, 12, 64];
 
-function isOdd(num) {
+function isOddAgain(num) {
   return num % 2 !== 0;
 }
 /*
 // /*** Uncomment these to check your work! ***/
-//console.log(myFunc(numbers, isOdd)); // Output should be 1
-//console.log(myFunc(evens, isOdd)); // Output should be -1
+// console.log(myFunc(numbers, isOddAgain)); // Output should be 1
+// console.log(myFunc(evens, isOddAgain)); // Output should be -1
 
 // Challenge 24
 /* Write a function myForEach that accepts an array and a callback function. Your function should pass each element of the array (in order) into the callback function. The behavior of this function should mirror the functionality of the native .forEach() JavaScript array method as closely as possible.
@@ -497,6 +496,6 @@ function addToSum(num) {
 }
 
 // /*** Uncomment these to check your work! ***/
-const nums2 = [1, 2, 3];
-myForEach(nums2, addToSum);
-console.log(sum); // Should output 6
+// const nums2 = [1, 2, 3];
+// myForEach(nums2, addToSum);
+// console.log(sum); // Should output 6
