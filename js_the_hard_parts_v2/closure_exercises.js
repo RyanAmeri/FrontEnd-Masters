@@ -229,7 +229,7 @@ console.log(getDay()); // => should log 'Fri'
 /* 
 Challenge 10
 Create a function defineFirstArg that accepts a function and an argument. Also, the function being passed in will accept at least one argument. defineFirstArg will return a new function that invokes the passed-in function with the passed-in argument as the passed-in function's first argument. Additional arguments needed by the passed-in function will need to be passed into the returned function.
-Challenge 11
+
 */
 function defineFirstArg(func, arg) {
   function insideFn(second) {
@@ -438,14 +438,22 @@ function makeHistory(limit) {
 // /*** Uncomment these to check your work! ***/
 
 const myActions = makeHistory(2);
-console.log(myActions("jump")); // => should log 'jump done'
-console.log(myActions("undo")); // => should log 'jump undone'
-console.log(myActions("walk")); // => should log 'walk done'
-console.log(myActions("code")); // => should log 'code done'
-console.log(myActions("pose")); // => should log 'pose done'
-console.log(myActions("undo")); // => should log 'pose undone'
-console.log(myActions("undo")); // => should log 'code undone'
-console.log(myActions("undo")); // => should log 'nothing to undo'
+console.log(myActions("jump"));
+// => should log 'jump done'
+console.log(myActions("undo"));
+// => should log 'jump undone'
+console.log(myActions("walk"));
+// => should log 'walk done'
+console.log(myActions("code"));
+// => should log 'code done'
+console.log(myActions("pose"));
+// => should log 'pose done'
+console.log(myActions("undo"));
+// => should log 'pose undone'
+console.log(myActions("undo"));
+// => should log 'code undone'
+console.log(myActions("undo"));
+// => should log 'nothing to undo'
 
 // CHALLENGE 19
 /* 

@@ -64,7 +64,7 @@ function limitedRepeat() {
   function clear() {
     clearInterval(id);
   }
-  console.log("hi again");
+  printHi();
   const id = setInterval(printHi, 1000);
   setTimeout(clear, 5000);
 }
@@ -132,38 +132,85 @@ function promised(val) {
 }
 
 // UNCOMMENT THESE TO TEST YOUR WORK!
-const createPromise = promised("wait for it...");
-createPromise.then((val) => console.log(val));
+//const createPromise = promised("wait for it...");
+//createPromise.then((val) => console.log(val));
 // will log "wait for it..." to the console after 2 seconds
 
 /* CHALLENGE 9 */
 
 class SecondClock {
   constructor(cb) {
-    // ADD CODE HERE
+    this.cb = cb;
+    this.seconds = 0;
+    this.id = undefined;
   }
-  // ADD METHODS HERE
+  start() {
+    this.id = setInterval(() => {
+      this.seconds++;
+      this.cb(this.seconds % 60);
+    }, 1000);
+  }
+  reset() {
+    this.seconds = 0;
+    clearInterval(this.id);
+  }
 }
 
 // UNCOMMENT THESE TO TEST YOUR WORK!
-// const clock = new SecondClock((val) => { console.log(val) });
+// const clock = new SecondClock((val) => {
+//   console.log(val);
+// });
 // console.log("Started Clock.");
 // clock.start();
 // setTimeout(() => {
-//     clock.reset();
-//     console.log("Stopped Clock after 6 seconds.");
+//   clock.reset();
+//   console.log("Stopped Clock after 6 seconds.");
 // }, 6000);
 
 /* CHALLENGE 10 */
 
 function debounce(callback, interval) {
-  // ADD CODE HERE
+  let counter = 0;
+  let hasRan = false;
+  function closureFn() {
+    let id = undefined;
+    if (!hasRan) {
+      ///this is the first run
+      id = setInterval(() => counter++, 1);
+      hasRan = true;
+      return callback();
+    } else {
+      //for subsequent runs
+      if (counter < interval) {
+        // Not enough time has elapsed
+        counter = 0;
+        clearInterval(id);
+        id = setInterval(() => counter++, 1);
+        return undefined;
+      } else {
+        //Enough time has elapsed
+        counter = 0;
+        clearInterval(id);
+        id = setInterval(() => counter++, 1);
+        return callback();
+      }
+    }
+  }
+  return closureFn;
 }
 
 // UNCOMMENT THESE TO TEST YOUR WORK!
-// function giveHi() { return 'hi'; }
-// const giveHiSometimes = debounce(giveHi, 3000);
-// console.log(giveHiSometimes()); // -> 'hi'
-// setTimeout(function() { console.log(giveHiSometimes()); }, 2000); // -> undefined
-// setTimeout(function() { console.log(giveHiSometimes()); }, 4000); // -> undefined
-// setTimeout(function() { console.log(giveHiSometimes()); }, 8000); // -> 'hi'
+function giveHi() {
+  return "hi";
+}
+const giveHiSometimes = debounce(giveHi, 3000);
+console.log(giveHiSometimes()); // -> 'hi'
+setTimeout(function () {
+  console.log(giveHiSometimes());
+}, 2000); // -> undefined
+setTimeout(function () {
+  console.log(giveHiSometimes());
+}, 4000); // -> undefined
+setTimeout(function () {
+  console.log(giveHiSometimes());
+}, 8000); // -> 'hi'
