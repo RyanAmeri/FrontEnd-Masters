@@ -1,0 +1,90 @@
+{
+  "name": "@mike-works/vscode-fundamentals",
+  "version": "0.0.0-development",
+  "description": "Mike Works, Inc. Visual Studio Code Course",
+  "main": "./server/index.js",
+  "scripts": {
+    "start": "node ./server/index.js",
+    "debug": "node debug ./server/index.js",
+    "debug:inspect": "node --inspect --inspect-brk ./server/index.js",
+    "build": "./node_modules/.bin/webpack --config webpack.config.dev.js",
+    "test": "npm run-script build",
+    "travis-deploy-once": "travis-deploy-once",
+    "semantic-release": "semantic-release"
+  },
+  "engines": {
+    "node": ">= 8.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mike-works/vscode-fundamentals.git"
+  },
+  "keywords": [
+    "vscode",
+    "workshops"
+  ],
+  "author": "Mike North <michael.l.north@gmail.com> (https://mike.works)",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/mike-works/vscode-fundamentals/issues"
+  },
+  "homepage": "https://github.com/mike-works/vscode-fundamentals#readme",
+  "dependencies": {
+    "babel-runtime": "6.26.0",
+    "commander": "2.19.0",
+    "debug": "4.1.1",
+    "koa": "2.13.0",
+    "koa-bodyparser": "4.3.0",
+    "koa-mount": "4.0.0",
+    "koa-router": "7.4.0",
+    "koa-static": "5.0.0",
+    "sequelize": "4.44.4",
+    "sqlite3": "4.2.0"
+  },
+  "devDependencies": {
+    "@mike-works/js-lib-renovate-config": "2.0.0",
+    "@mike-works/workshop-semantic-release-config": "1.0.0",
+    "@types/commander": "2.12.2",
+    "@types/csv-parse": "1.1.12",
+    "@types/debug": "4.1.5",
+    "@types/extract-text-webpack-plugin": "3.0.4",
+    "@types/html-webpack-plugin": "3.2.3",
+    "@types/koa": "2.11.3",
+    "@types/koa-bodyparser": "5.0.2",
+    "@types/koa-mount": "3.0.1",
+    "@types/koa-router": "7.4.1",
+    "@types/koa-static": "4.0.1",
+    "@types/react": "16.9.46",
+    "@types/react-dom": "16.9.8",
+    "@types/sequelize": "4.28.9",
+    "@types/webpack": "4.41.21",
+    "@types/webpack-bundle-analyzer": "2.13.3",
+    "awesome-typescript-loader": "5.2.1",
+    "css-loader": "2.1.1",
+    "extract-text-webpack-plugin": "3.0.2",
+    "file-loader": "3.0.1",
+    "html-webpack-plugin": "3.2.0",
+    "koa-webpack-middleware": "1.0.7",
+    "muicss": "0.10.2",
+    "node-sass": "4.14.1",
+    "nodemon": "1.19.4",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-test-renderer": "16.13.1",
+    "sass-loader": "7.3.1",
+    "semantic-release": "15.14.0",
+    "source-map-loader": "0.2.4",
+    "style-loader": "0.23.1",
+    "travis-deploy-once": "5.0.11",
+    "ts-node": "8.10.2",
+    "tslint": "5.12.1",
+    "tslint-microsoft-contrib": "6.2.0",
+    "typescript": "3.3.4000",
+    "webpack": "4.44.1",
+    "webpack-bundle-analyzer": "3.8.0",
+    "webpack-cli": "3.3.12"
+  },
+  "release": {
+    "extends": "@mike-works/workshop-semantic-release-config"
+  }
+}

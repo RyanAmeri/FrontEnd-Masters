@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2015",
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "outDir": "../dist-server",
+    "baseUrl": ".",
+    "rootDirs": [
+      ".."
+    ],
+    "allowJs": true,
+    "paths": {
+      "koa-webpack-middleware": [
+        "node_modules/koa-webpack-middleware/middleware/index"
+      ]
+    }
+  },
+  "include": ["./**/*"],
+  "exclude": [
+    "../node_modules"
+  ]
+}
