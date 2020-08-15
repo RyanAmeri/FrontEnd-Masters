@@ -1,15 +1,19 @@
-// TODO: define polyfill for `Object.is(..)`
+// Polyfill for `Object.is(..)`
 Object.is = function ObjectIs(input1, input2) {
+  //if one of the inputs is number
   if (typeof input1 === "number" || typeof input2 === "number") {
+    // if they are both NaN, return true, reimplemeting Number.isNaN()
     if (isNaN(input1) && isNaN(input2)) return true;
-    else if (1 / input1 === -Infinity && 1 / input2 !== -Infinity) return false;
-    else if (1 / input2 === -Infinity && 1 / input1 !== -Infinity) return false;
-    else return input1 === input2 ? true : false; //input are not -0 or NaN so we can use a normal ===
-  } else {
-    // Inputs are not numbers so we can use a normal ===
-    return input1 === input2 ? true : false;
+    else if (isNegativeZero(input1) && !isNegativeZero(input2)) return false;
+    else if (isNegativeZero(input2) && !isNegativeZero(input1)) return false;
   }
+  //input are not -0 or NaN so we can use a normal ===
+  return input1 === input2 ? true : false;
 };
+
+function isNegativeZero(num) {
+  return 1 / num === -Infinity ? true : false;
+}
 
 // tests:
 console.log(Object.is(42, 42) === true);
