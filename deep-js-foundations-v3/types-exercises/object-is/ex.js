@@ -8,11 +8,11 @@ Object.is = function ObjectIs(input1, input2) {
     else if (isNegativeZero(input2) && !isNegativeZero(input1)) return false;
   }
   //input are not -0 or NaN so we can use a normal ===
-  return input1 === input2 ? true : false;
+  return input1 === input2;
 };
 
 function isNegativeZero(num) {
-  return 1 / num === -Infinity ? true : false;
+  return num === 0 && 1 / num === -Infinity;
 }
 
 // tests:
