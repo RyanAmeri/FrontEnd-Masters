@@ -81,21 +81,20 @@ The function reduce takes an array and reduces the elements to a single value. F
 */
 
 function reduce(array, callback, initialValue) {
-  let newValue;
-  function reduce(array, callback, initialValue) {
-    let newValue;
-    if (Object.keys(arguments).length > 2) {
-      newValue = initialValue;
-    } else { // InitialValue not provided
-      newValue = array[0];
-      array.shift();
-    }
-  
-    forEach(array, (item) => {
-      newValue = callback(newValue, item);
-    });
-    return newValue;
+  let accum;
+  if (Object.keys(arguments).length > 2) {
+    accum = initialValue;
+  } else {
+    // InitialValue not provided
+    accum = array[0];
+    array.shift();
   }
+
+  forEach(array, (item) => {
+    accum = callback(accum, item);
+  });
+  return accum;
+}
 const nums = [4, 1, 3];
 const add = function (a, b) {
   return a + b;
